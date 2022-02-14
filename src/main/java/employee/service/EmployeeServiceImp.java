@@ -30,6 +30,7 @@ public class EmployeeServiceImp implements EmployeeService {
 	@Override
 	public String deleteEmployee(int id) {
 		// TODO Auto-generated method stub
+		System.out.println(id);
 		try {
 			re.deleteById(id);
 		} catch (Exception e) {
@@ -53,9 +54,10 @@ public class EmployeeServiceImp implements EmployeeService {
 		// TODO Auto-generated method stub
 		//countEmp(name);
 		System.out.println(name);
-		List<Employee> l =re.findAllByName(name);
-		List<Employee> e = re.findAllByName("Ayush");
-		System.out.println("find by default value"+e);
+		String str=name;
+		List<Employee> l =re.findAllByName(str.substring(1,str.length()-1));
+//		List<Employee> e = re.findAllByName("Ayush");
+		System.out.println("find by default value"+l);
 		System.out.println("find by variable value pass "+l);
 		return l;
 	}
